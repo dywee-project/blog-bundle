@@ -1,0 +1,47 @@
+dywee_blog_index:
+    path:     /blog
+    defaults: { _controller: DyweeBlogBundle:Blog:list, page:1 }
+    requirements:
+        page: \d*
+
+dywee_blog_list:
+    path:     /blog/list/{page}
+    defaults: { _controller: DyweeBlogBundle:Blog:list, page:1 }
+    requirements:
+        page: \d*
+
+dywee_blog_view_old:
+    path:     /blog/view/{data}
+    defaults: { _controller: DyweeBlogBundle:Blog:view }
+
+dywee_blog_view:
+    path:     /blog/{data}
+    defaults: { _controller: DyweeBlogBundle:Blog:view }
+
+dywee_blog_add:
+    path:     /admin6833/blog/add
+    defaults: { _controller: DyweeBlogBundle:Blog:add }
+
+dywee_blog_table:
+    path:     /admin6833/blog/list/{page}
+    defaults: { _controller: DyweeBlogBundle:Blog:table, page:1 }
+    requirements:
+        page: \d*
+
+dywee_blog_update:
+    path:     /admin6833/blog/update/{id}
+    defaults: { _controller: DyweeBlogBundle:Blog:update }
+    requirements:
+        id: \d+
+
+dywee_blog_delete:
+    path:     /admin6833/blog/delete/{id}
+    defaults: { _controller: DyweeBlogBundle:Blog:delete }
+    requirements:
+        id: \d+
+
+dywee_tags_json:
+    path:     /admin6833/blog/tags/json
+    defaults: { _controller: DyweeBlogBundle:Tag:tags, _locale: 'fr' }
+    options:
+        expose: true

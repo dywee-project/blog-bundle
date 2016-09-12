@@ -1,0 +1,121 @@
+{# Dywee\BlogBundle\Resources\View\Blog\form.html.twig #}
+
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{{ form_start(form) }}
+
+    {# les erreurs du formulaire #}
+    {{ form_errors(form) }}
+
+    <div class="col-md-3 col-xs-5 pull-right">
+        <div class="row">
+            <div class="col-md-8 col-xs-6">
+                {{ form_widget(form.state) }}
+            </div>
+            <div class="col-md-3 col-xs-6">
+                {{ form_widget(form.sauvegarder, {"attr": {"class": "btn btn-success"}}) }}
+            </div>
+        </div>
+    </div>
+
+    <ul id="descriptions" class="nav nav-tabs">
+        <li class="active"><a href="#contentTab" data-toggle="tab"><i class="fa fa-font"></i> Contenu</a></li>
+        <li><a href="#seoTab" data-toggle="tab"><i class="fa fa-bar-chart-o"></i> Référencement</a></li>
+        {#<li><a href="#settingsTab" data-toggle="tab"><i class="fa fa-cog"></i> Paramètres</a></li>#}
+    </ul>
+    <p>&nbsp;</p>
+
+
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="contentTab">
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div id="img-preview"></div>
+                {{ form_widget(form.image) }}
+            </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                    {{ form_label(form.title, "Titre de l'article", {"label_attr": {"class": "col-sm-2"}}) }}
+                    {{ form_errors(form.title) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.title) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.tagsText, "Tags", {"label_attr": {"class": "col-sm-2"}}) }}
+                    {{ form_errors(form.tagsText) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.tagsText) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.content, "Contenu de l'article", {"label_attr": {"class": "col-sm-2"}}) }}
+                    {{ form_errors(form.content) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.content) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade in" id="seoTab">
+        <div class="form-group">
+            {{ form_label(form.metaTitle, "Meta Title", {"label_attr": {"class": "col-sm-2"}}) }}
+            {{ form_errors(form.metaTitle) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.metaTitle) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.metaDescription, "Meta Description", {"label_attr": {"class": "col-sm-2"}}) }}
+            {{ form_errors(form.metaDescription) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.metaDescription) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.metaKeywords, "Meta Keywords", {"label_attr": {"class": "col-sm-2"}}) }}
+            {{ form_errors(form.metaKeywords) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.metaKeywords) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.seoUrl, "Url optimisée", {"label_attr": {"class": "col-sm-2"}}) }}
+            {{ form_errors(form.seoUrl) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.seoUrl) }}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    {{ form_rest(form) }}
+{{ form_end(form) }}
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: Routing.generate('dywee_tags_json'),
+            dataType: 'json',
+            success: function(result)
+            {
+                $("#dywee_blogbundle_article_tagsText").select2({
+                    data: result,
+                    multiple: true,
+                    allowClear: true
+                });
+
+                console.log($("#dywee_blogbundle_article_tagsText"));
+            }
+        });
+
+
+    })
+</script>

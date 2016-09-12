@@ -1,0 +1,7 @@
+{# Dywee\BlogBundle\Resources\View\Blog\list.html.twig #}
+
+{%  extends "DyweeBlogBundle::index.html.twig" %}
+
+{% block bodySubContent %}
+    {{ render(controller('DyweeBlogBundle:Blog:pageList')) }}
+{% endblock %}
