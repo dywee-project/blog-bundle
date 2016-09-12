@@ -2,7 +2,7 @@
   "name": "dywee/blog-bundle",
   "type": "symfony-bundle",
   "description": "Symfony3 bundle for blogging",
-  "keywords": ["blog, article"],
+  "keywords": ["blog", "article"],
   "license": "MIT",
   "authors": [
     {
