@@ -1,7 +1,15 @@
-'Symfony2 is great': 'J''aime Symfony2'
-'L''univers des bières belges': 'L''univers des bières belges'
-'Aller à l''article': 'Aller à l''article'
-'Retour au blog': 'Retour au blog'
-'Restez informés': 'Restez informés'
-'Entrez votre email': 'Entrez votre email'
-Inscription: Inscription
+article:
+
+    sidebar:
+        label: Articles
+        table: Liste des articles
+
+    dashboard:
+        label: Dernières articles
+
+    view: Aller à l'article
+    return: Retour au blog
+    stayTuned: Restez informés
+    enterEmail: Entrez votre email
+    subscription: Inscription
+

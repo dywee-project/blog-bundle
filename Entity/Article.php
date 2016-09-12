@@ -5,9 +5,11 @@ namespace Dywee\BlogBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Dywee\CoreBundle\Traits\Picture;
+use Dywee\CoreBundle\Traits\Seo;
 use Dywee\UserBundle\Entity\User;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Article
@@ -15,11 +17,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Dywee\BlogBundle\Repository\ArticleRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  */
 class Article
 {
     use Picture;
     use TimestampableEntity;
+    use Seo;
 
     const STATE_DRAFT = 'draft';
     const STATE_PUBLISHED = 'published';
