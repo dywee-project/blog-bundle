@@ -2,7 +2,7 @@
 
 {%  extends "DyweeBlogBundle::admin.html.twig" %}
 
-{% block title %} Modification d'un article - {{ parent() }} {% endblock %}
+{% block metaTitle %} Modification d'un article - {{ parent() }} {% endblock %}
 
 {% block stylesheets %}
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
 {% block body %}
     <h1>Modification d'un article</h1>
 
-{% include "DyweeBlogBundle:Blog:form.html.twig" %}
+{% include "DyweeBlogBundle:Article:form.html.twig" %}
 {% endblock %}
 
 {% block footerJavascript %}

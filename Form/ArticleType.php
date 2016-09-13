@@ -31,7 +31,7 @@ class ArticleType extends AbstractType
             ->add('content',            CKEditorType::class)
             ->add('seo',                SeoType::class)
             ->add('state',              ChoiceType::class,   array('choices' => $choices))
-            ->add('tagsText',           TextType::class,     array('required' => false, 'label' => 'Tags'))
+            //->add('tagsText',           TextType::class,     array('required' => false, 'label' => 'Tags'))
         ;
     }
     
@@ -41,7 +41,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Dywee\ProductBundle\Entity\Product'
+            'data_class' => 'Dywee\BlogBundle\Entity\Article'
         ));
     }
 }

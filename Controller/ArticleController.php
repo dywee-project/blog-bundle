@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class BlogController extends ParentController
+class ArticleController extends ParentController
 {
     /**
      * @Route(name="article_view", path="article/{id}")
