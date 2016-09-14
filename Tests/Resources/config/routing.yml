@@ -1,0 +1,17 @@
+dywee_blog_index:
+    path:     /blog
+    defaults: { _controller: DyweeBlogBundle:Blog:list, page:1 }
+    requirements:
+        page: \d*
+
+dywee_blog_list:
+    path:     /blog/list/{page}
+    defaults: { _controller: DyweeBlogBundle:Blog:list, page:1 }
+    requirements:
+        page: \d*
+
+dywee_tags_json:
+    path:     /admin6833/blog/tags/json
+    defaults: { _controller: DyweeBlogBundle:Tag:tags, _locale: 'fr' }
+    options:
+        expose: true

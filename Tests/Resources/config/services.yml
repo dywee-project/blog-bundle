@@ -1,0 +1,33 @@
+services:
+
+    ###########################
+    #                         #
+    #         SIDEBAR         #
+    #                         #
+    ###########################
+
+    dywee_blog.admin_sidebar_listener:
+        class: Dywee\BlogBundle\Listener\AdminSidebarBuilderListener
+        arguments: [ '@dywee_blog.sidebar_handler' ]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    dywee_blog.sidebar_handler:
+        class: Dywee\BlogBundle\Service\AdminSidebarHandler
+        arguments: [ '@router' ]
+
+    ###########################
+    #                         #
+    #        DASHBOARD        #
+    #                         #
+    ###########################
+
+    dywee_blog.admin_dashboard_listener:
+        class: Dywee\BlogBundle\Listener\AdminDashboardBuilderListener
+        arguments: [ '@dywee_blog.dashboard_handler' ]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    dywee_blog.dashboard_handler:
+        class: Dywee\BlogBundle\Service\AdminDashboardHandler
+        arguments: [ '@router' ]

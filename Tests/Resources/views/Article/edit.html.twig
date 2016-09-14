@@ -1,0 +1,26 @@
+{# Dywee\BlogBundle\Resources\View\Blog\add.html.twig #}
+
+{%  extends "DyweeBlogBundle::admin.html.twig" %}
+
+{% block metaTitle %} Modification d'un article - {{ parent() }} {% endblock %}
+
+{% block stylesheets %}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h1>Modification d'un article</h1>
+
+{% include "DyweeBlogBundle:Article:form.html.twig" %}
+{% endblock %}
+
+{% block footerJavascript %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#dywee_blogbundle_article_image_file").fileinput({showUpload: false, showRemove: false});
+        });
+    </script>
+{% endblock %}

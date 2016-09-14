@@ -1,0 +1,27 @@
+{%  for article in articles %}
+    <div class="article">
+        <span class="pull-right"><em>Publié le {{ article.publicationDate|date("d/m/Y") }}</em> par {{ article.createdBy.firstName }} {{ article.createdBy.lastName }}</span>
+        <h2 class="little-title"><a href="{{ path('dywee_blog_view', {data: article.seoUrl}) }}">{{ article.title }}</a></h2>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="{{ path('dywee_blog_view', {data: article.seoUrl}) }}">
+                    {% if article.image is not null %}
+                        <img src="{{ asset(article.image.webPath) }}" alt="{{ article.title }}" class="img-responsive" style="margin-top:10px">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="col-md-9">
+                <a href="{{ path('dywee_blog_view', {data: article.seoUrl}) }}">{{ article.content[:400]|striptags|raw }}</a>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="fb-share-button col-md-6" data-href="#" data-type="button_count"></div>
+            <div class="col-md-6">
+                <a href="{{ path('dywee_blog_view', {data: article.seoUrl}) }}" class="btn btn-default pull-right">
+                    {{ 'Aller à l\'article'|trans }} <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
