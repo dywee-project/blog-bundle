@@ -22,6 +22,11 @@ class AdminSidebarHandler
             'label' => 'article.sidebar.label',
             'children' => array(
                 array(
+                    'icon' => 'fa fa-plus',
+                    'label' => 'article.sidebar.add',
+                    'route' => $this->router->generate('article_add')
+                ),
+                array(
                     'icon' => 'fa fa-list-alt',
                     'label' => 'article.sidebar.table',
                     'route' => $this->router->generate('article_table')

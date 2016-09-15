@@ -3,6 +3,7 @@ article:
     sidebar:
         label: Articles
         table: Liste des articles
+        add: Ecrire un article
 
     dashboard:
         label: Dernières articles
