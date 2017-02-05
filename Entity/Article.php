@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Dywee\CoreBundle\Traits\Picture;
 use Dywee\CoreBundle\Traits\Seo;
-use Dywee\UserBundle\Entity\User;
+use Dywee\UserBundle\Entity\UserInterface;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -67,7 +67,7 @@ class Article
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Dywee\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $createdBy;
@@ -193,10 +193,10 @@ class Article
     /**
      * Set createdBy
      *
-     * @param User $createdBy
+     * @param UserInterface $createdBy
      * @return Article
      */
-    public function setCreatedBy(User $createdBy)
+    public function setCreatedBy(UserInterface $createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -206,7 +206,7 @@ class Article
     /**
      * Get createdBy
      *
-     * @return \Dywee\UserBundle\Entity\User
+     * @return UserInterface
      */
     public function getCreatedBy()
     {
