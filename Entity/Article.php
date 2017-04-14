@@ -67,8 +67,9 @@ class Article
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Dywee\CoreBundle\Model\UserInterface")
      * @ORM\JoinColumn(nullable=false)
+     * @var UserInterface
      */
     private $createdBy;
 
