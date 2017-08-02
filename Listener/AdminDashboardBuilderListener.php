@@ -3,7 +3,7 @@
 namespace Dywee\BlogBundle\Listener;
 
 use Dywee\CoreBundle\DyweeCoreEvent;
-use Dywee\CoreBundle\Event\AdminDashboardBuilderEvent;
+use Dywee\CoreBundle\Event\DashboardBuilderEvent;
 use Dywee\BlogBundle\Service\AdminDashboardHandler;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -24,7 +24,7 @@ class AdminDashboardBuilderListener implements EventSubscriberInterface{
         );
     }
 
-    public function addElementToDashboard(AdminDashboardBuilderEvent $adminDashboardBuilderEvent)
+    public function addElementToDashboard(DashboardBuilderEvent $adminDashboardBuilderEvent)
     {
         $adminDashboardBuilderEvent->addElement($this->adminDashboardHandler->getDashboardElement());
     }
