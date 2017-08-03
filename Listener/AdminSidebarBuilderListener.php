@@ -8,25 +8,38 @@ use Dywee\CoreBundle\Event\SidebarBuilderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
-class AdminSidebarBuilderListener implements EventSubscriberInterface{
+class AdminSidebarBuilderListener implements EventSubscriberInterface
+{
+    /** @var AdminSidebarHandler  */
     private $adminSidebarHandler;
 
+    /**
+     * AdminSidebarBuilderListener constructor.
+     *
+     * @param AdminSidebarHandler $adminSidebarHandler
+     */
     public function __construct(AdminSidebarHandler $adminSidebarHandler)
     {
         $this->adminSidebarHandler = $adminSidebarHandler;
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         // return the subscribed events, their methods and priorities
-        return array(
-            DyweeCoreEvent::BUILD_ADMIN_SIDEBAR => array('addElementToSidebar', -10)
-        );
+        return [
+            DyweeCoreEvent::BUILD_ADMIN_SIDEBAR => ['addElementToSidebar', -10]
+        ];
     }
 
-    public function addElementToSidebar(SidebarBuilderEvent $adminSidebarBuilderEvent)
+    /**
+     * @param SidebarBuilderEvent $sidebarBuilderEvent
+     */
+    public function addElementToSidebar(SidebarBuilderEvent $sidebarBuilderEvent)
     {
-        $adminSidebarBuilderEvent->addElement($this->adminSidebarHandler->getSideBarMenuElement());
+        $sidebarBuilderEvent->addElement($this->adminSidebarHandler->getSideBarMenuElement());
     }
 
 }

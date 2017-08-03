@@ -4,11 +4,10 @@ namespace Dywee\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Dywee\CoreBundle\Model\UserInterface;
 use Dywee\CoreBundle\Traits\Picture;
 use Dywee\CoreBundle\Traits\Seo;
-use Dywee\UserBundle\Entity\UserInterface;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
