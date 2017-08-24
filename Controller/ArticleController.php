@@ -52,33 +52,10 @@ class ArticleController extends ParentController
         return parent::deleteAction($object, $request);
     }
 
-
-    /*
-    public function listAction($itemByPage = 4)
+    public function homepageListAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $ar = $em->getRepository('DyweeBlogBundle:Article');
-        $as = $ar->findBy(array('website' => $this->container->getParameter('website.id')), array('publicationDate' => 'DESC'), $itemByPage);
-        return $this->render('DyweeBlogBundle:Blog:list.html.twig', array('articles' => $as));
+        $articleRepository = $this->getDoctrine()->getRepository(Article::class);
+        //TODO
     }
-
-    public function pageListAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $ar = $em->getRepository('DyweeBlogBundle:Article');
-        $as = $ar->findBy(array('website' => $this->container->getParameter('website.id')), array('publicationDate' => 'DESC'), 10);
-        return $this->render('DyweeBlogBundle:Blog:page-list.html.twig', array('articles' => $as));
-    }
-
-    public function footerAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $ar = $em->getRepository('DyweeBlogBundle:Article');
-
-        $as = $ar->findForFooter(5);
-
-        return $this->render('DyweeBlogBundle:Blog:footer.html.twig', array('articles' => $as));
-    }
-    //*/
 
 }
